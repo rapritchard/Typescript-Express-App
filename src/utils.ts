@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { NewDiaryEntry, Weather, Visibility, NewPatientEntry, Gender } from './types';
+import { NewDiaryEntry, Weather, Visibility, NewPatientEntry, Gender, Entry } from './types';
 
 const isString = (text: any): text is string => {
   return typeof text === 'string' || text instanceof String;
@@ -15,6 +15,10 @@ const isWeather = (param: any): param is Weather => {
 
 const isVisibility = (param: any): param is Visibility => {
   return Object.values(Visibility).includes(param);
+};
+
+const isArray = (param: any): param is Array<any> => {
+  return Array.isArray(param);
 };
 
 const parseVisibility = (visibility: any): Visibility => {
@@ -85,6 +89,13 @@ const parseOccupation = (occupation: any): string => {
   return occupation;
 };
 
+const parseEntries = (entries: any): Entry[] => {
+  if (!entries || !isArray(entries)) {
+    throw new Error('Incorrect or missing entries: ' + entries);
+  }
+  return entries;
+};
+
 export const toNewDiaryEntry = (object: any): NewDiaryEntry => {
   return {
     date: parseDate(object.date),
@@ -100,6 +111,7 @@ export const toNewPatientEntry = (object: any): NewPatientEntry => {
     dateOfBirth: parseDate(object.dateOfBirth),
     ssn: parseSnn(object.ssn),
     gender: parseGender(object.gender),
-    occupation: parseOccupation(object.occupation)
+    occupation: parseOccupation(object.occupation),
+    entries: parseEntries(object.entries),
   };
 };
