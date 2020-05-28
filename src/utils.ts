@@ -61,12 +61,12 @@ const parseName = (name: any): string => {
   return name;
 };
 
-const parseSnn = (snn: any): string => {
-  if (!snn || !isString(snn)) {
-    throw new Error('Incorrect or missing snn: ' + snn);
+const parseSnn = (ssn: any): string => {
+  if (!ssn || !isString(ssn)) {
+    throw new Error('Incorrect or missing ssn: ' + ssn);
   }
 
-  return snn;
+  return ssn;
 };
 
 const isGender = (param: any): param is Gender => {
