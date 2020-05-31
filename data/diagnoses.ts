@@ -1,4 +1,6 @@
-[
+import { DiagnoseEntry } from '../src/types'
+
+const diagnoses: DiagnoseEntry[] = [
   {
     "code": "M24.2",
     "name": "Disorder of ligament",
@@ -76,4 +78,6 @@
     "name": "Other proliferative retinopathy",
     "latin": "Alia retinopathia proliferativa"
   }
-]
+];
+
+export default diagnoses;
