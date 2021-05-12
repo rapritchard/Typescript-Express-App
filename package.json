@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "build/index.js",
+  "engines": {
+    "node": "14.15.5"
+  },
   "scripts": {
     "tsc": "tsc",
     "start": "node build/src/index.js",
