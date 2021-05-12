@@ -1,7 +1,7 @@
 import { v4 as uuid } from 'uuid';
 import patientData from '../../data/patients';
 
-import { NonSensitivePatientEntry, PatientEntry, NewPatientEntry, PublicPatient } from '../types';
+import { NonSensitivePatientEntry, PatientEntry, NewPatientEntry } from '../types';
 
 const patients: Array<PatientEntry> = patientData;
 
